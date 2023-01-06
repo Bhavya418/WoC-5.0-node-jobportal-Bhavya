@@ -1,11 +1,13 @@
-const { request } = require("express");
+require("dotenv").config();
+
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const { body, validationResult } = require("express-validator");
 const User = require("../models/User");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = "Bhavya is a dumb boy";
+const fetchuser = require("../middleware/fetchUser");
+const JWT_SECRET = process.env.JWT_SECRET;
 //Route 1: Create a user POST: "api/auth/createUser" still not bycrypted
 router.post(
   "/createUser",
@@ -34,8 +36,8 @@ router.post(
       var hash = bcrypt.hashSync(req.body.password, salt);
       user = await User.create({
         email: req.body.email,
-        password: req.body.password,
-        typeUser: hash,
+        password: hash,
+        typeUser: req.body.typeUser,
       });
       const userID = {
         user: {
@@ -76,7 +78,7 @@ router.post(
       }
       const passWordCompare = await bcrypt.compareSync(password, user.password);
       if (!passWordCompare) {
-        return req.status(400).json({
+        return res.status(400).json({
           error: "Please try to login with correct credentials",
         });
       }
@@ -92,6 +94,26 @@ router.post(
       res.status(500).send("Internel Server Error");
     }
   }
+  
 );
+//Route 3: Fetch the user POST: "api/auth/getUser"
+//Making the middleware fetchUser which checks the incoming token before sending it to route
+router.post(
+    "/getUser",
+    fetchuser,
+    async (req, res) => {
+    
+      try {
+        const userId= req.user.id;
+        const user = await User.findById(userId).select("-password");
+        res.send(user);
+
+      } catch (error) {
+        console.log(error.message);
+        res.status(500).send("Internel Server Error");
+      }
+    }
+    
+  );
 
 module.exports = router;
