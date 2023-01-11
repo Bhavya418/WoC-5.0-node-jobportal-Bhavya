@@ -21,8 +21,8 @@ const studentSchema = new Schema({
     required: true
   },
   cpi: {
-    type: Date,
-    default: Date.now
+    type: String,
+    required: true
   },
   contactDetails: {
     type: String,
@@ -31,6 +31,10 @@ const studentSchema = new Schema({
   email: {
     type: String,
     required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now,
   },
   
 });

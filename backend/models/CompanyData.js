@@ -1,37 +1,50 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const comapanySchema = new Schema({
-  
-  name: {
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
+  },
+  companyName: {
     type: String,
     required: true,
     
   },
-   StudentID: {
+   email: {
     type: String,
     required: true,
     unique: true,
     
   },
-  address: {
+  age: {
     type: String,
     required: true
   },
-  cpi: {
-    type: Date,
-    default: Date.now
+  cpiCriteria: {
+    type: String,
+    required: true
   },
-  contactDetails: {
+  officialWebsite: {
     type: String,
     required: true
   },  
-  email: {
+  position: {
     type: String,
     required: true
   },
+  package: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+
   
 });
 
 const companyData=mongoose.model('company',comapanySchema)
 
-module.exports =companyData
+module.exports =companyData;
+
