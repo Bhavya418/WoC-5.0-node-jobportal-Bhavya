@@ -5,7 +5,7 @@ const app = express();
 const port = 5000;
 app.use(express.json());
  app.use("/api/auth", require("./routes/auth"));
-// app.use("/api/studentData", require("./routes/studentData"));
+app.use("/api/studentData", require("./routes/applicant"))
 // app.use("/api/companyData", require("./routes/companyData"));
 
 
