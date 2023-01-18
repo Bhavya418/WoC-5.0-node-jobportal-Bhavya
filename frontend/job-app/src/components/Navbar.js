@@ -10,14 +10,14 @@ const Navbar = () => {
             <img src={Logo} alt="" />
           </div>
           <div className="hidden md:flex  space-x-6">
-            <a href="/" className="hover:text-sky-500 hover:underline hover:underline-offset-8">Home</a>
-            <a href="/" className="hover:text-sky-500 hover:underline hover:underline-offset-8">About us</a>
-            <a href="/" className="hover:text-sky-500 hover:underline hover:underline-offset-8">Trending</a>
-            <a href="/" className="hover:text-sky-500 hover:underline hover:underline-offset-8">Community</a>
+            <a href="/home" className="hover:text-sky-500 hover:underline hover:underline-offset-8">Home</a>
+            <a href="/about" className="hover:text-sky-500 hover:underline hover:underline-offset-8">About us</a>
+            <a href="/trending" className="hover:text-sky-500 hover:underline hover:underline-offset-8">Trending</a>
+            <a href="/community" className="hover:text-sky-500 hover:underline hover:underline-offset-8">Community</a>
           </div>
           <div className="hidden md:flex space-x-6">
-          <a href="/" className="hidden md:block  px-4 py-1 text-white text-medium baseline rounded bg-sky-500 hover:bg-white hover:text-sky-500 hover:outline hover:outline-2">Login</a>
-          <a href="/" className="hidden md:block px-4 py-1 text-white text-medium baseline rounded bg-sky-500 hover:bg-white hover:text-sky-500 hover:outline hover:outline-2">Sign Up</a>
+          <a href="/login" className="hidden md:block  px-4 py-1 text-white text-medium baseline rounded bg-sky-500 hover:bg-white hover:text-sky-500 hover:outline hover:outline-2">Login</a>
+          <a href="/signup" className="hidden md:block px-4 py-1 text-white text-medium baseline rounded bg-sky-500 hover:bg-white hover:text-sky-500 hover:outline hover:outline-2">Sign Up</a>
           </div>
         </div>
       </nav>
