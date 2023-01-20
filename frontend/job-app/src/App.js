@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Trending from "./components/Trending";
 import Community from "./components/Community";
 import About from "./components/About";
+import StudentData from "./components/StudentData";
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Home  />}></Route>
               <Route exact path="/about" element={<About />} />
+              <Route exact path="/studentData" element={<StudentData />} />
               <Route exact path="/community" element={<Community />} />
               <Route exact path="/trending" element={<Trending />} />
               <Route exact path="/home" element={<Home  />} />
