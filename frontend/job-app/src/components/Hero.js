@@ -22,7 +22,7 @@ const Hero = (props) => {
             </div>
           </div>
           {/* Right item */}
-          <div class=" flex md:justify-end">
+          <div className=" flex md:justify-end">
                 <img src={image} alt=""/>
                 
 
@@ -43,7 +43,7 @@ const Hero = (props) => {
           </div>
         </div>
         {/* Right item */}
-        <div class=" flex md:justify-start">
+        <div className=" flex md:justify-start">
               <img src={newImage} alt=""/>
               
 
