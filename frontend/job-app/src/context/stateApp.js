@@ -1,8 +1,7 @@
-import contextApp from "./contextApp";
+import ContextApp from "./ContextApp";
 import { useState } from "react";
 
-const stateApp = () => {
-  const host = "http://localhost:5000";
+const StateApp = (props) => {
   const initialData = [];
   const [studentData, setStudentData] = useState(initialData);
   const addData = async (
@@ -13,25 +12,38 @@ const stateApp = () => {
     contactDetails,
     email
   ) => {
-    const response = await fetch(`${host}/api/notes/addnote`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-      body: JSON.stringify({
-        name,
-        StudentID,
-        address,
-        cpi,
-        contactDetails,
-        email,
-      }),
-    });
-    const newData= await response.json();
+    const response = await fetch(
+      "http://localhost:5000/api/studentData/addData",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          name,
+          StudentID,
+          address,
+          cpi,
+          contactDetails,
+          email,
+        }),
+      }
+    );
+    const newData = await response.json();
     setStudentData(newData);
   };
-  return <contextApp.Provider value={{addData}}>{props.children}</contextApp.Provider>;
+  const editData=()=>{
+
+  }
+  const getData=async()=>{
+    const respone= await fetch("")
+  }
+  return (
+    <ContextApp.Provider value={{ addData,editData,getData }}>
+      {props.children}
+    </ContextApp.Provider>
+  );
 };
 
-export default stateApp;
+export default StateApp;

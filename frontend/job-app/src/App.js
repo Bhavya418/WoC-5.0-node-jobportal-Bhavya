@@ -7,11 +7,13 @@ import Trending from "./components/Trending";
 import Community from "./components/Community";
 import About from "./components/About";
 import StudentData from "./components/StudentData";
-
+import StateApp from "./context/StateApp";
+import DataShow from "./components/DataShow";
 function App() {
   
   return (
     <div className="App">
+      <StateApp>
       <Router>
           <Navbar />
           
@@ -25,9 +27,12 @@ function App() {
               <Route exact path="/home" element={<Home  />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<SignUp />} />
+              <Route exact path="/signup" element={<SignUp />} />
+              <Route exact path="/dataShow" element={<DataShow />} />
             </Routes>
           </div>
         </Router>
+        </StateApp>
     </div>
   );
 }

@@ -24,7 +24,7 @@ const SignUp = (props) => {
     console.log(json);
     if (json) {
       
-      localStorage.setItem("token", json.authToken);
+      localStorage.setItem("token", json);
       Navigate("/login");
     }
   };
