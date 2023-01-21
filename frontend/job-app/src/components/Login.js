@@ -23,7 +23,7 @@ const Login = (props) => {
     console.log(json);
     if(json){
       localStorage.setItem('token',json)
-      Navigate("/studentData");
+      Navigate("/dataShow");
     }
   };
   const onChange = (e) => {

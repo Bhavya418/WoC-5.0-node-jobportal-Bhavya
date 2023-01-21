@@ -5,7 +5,7 @@ import ContextApp from "../context/ContextApp";
 const DataShow = () => {
   const context = useContext(ContextApp);
   const Navigate = useNavigate();
-  const { editData, getData } = context;
+  const { editData, getData ,studentData} = context;
   const [data, setData] = useState({
     ename: "",
     eStudentID: "",
@@ -21,12 +21,26 @@ const DataShow = () => {
     else{
         Navigate("/login");
     }
-  })
+  },[])
   return (
-    <div className="container flex flex-row justify-content-center align-items-center">
+    <div >
       <h2>Your Data</h2>
-    </div>
-  );
+      {studentData.map((data) => {
+        return(
+            <div>
+            <h1>Name : {data.name}</h1>
+            <h1>Student ID : {data.StudentID}</h1>
+            <h1>Address : {data.address}</h1>
+            <h1>CPI : {data.cpi}</h1>
+            <h1>email : {data.email}</h1>
+            <h1>Contact Details : {data.contactDetails}</h1>
+
+</div>        )
+        
+      }
+      )}
+      </div>
+  )
 };
 
 export default DataShow;

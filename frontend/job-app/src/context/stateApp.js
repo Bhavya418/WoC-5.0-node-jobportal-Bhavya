@@ -31,16 +31,28 @@ const StateApp = (props) => {
       }
     );
     const newData = await response.json();
-    setStudentData(newData);
+     setStudentData(studentData.push(newData));
   };
-  const editData=()=>{
-
-  }
-  const getData=async()=>{
-    const respone= await fetch("")
-  }
+  const editData = () => {};
+  const getData = async () => {
+    const response = await fetch(
+      "http://localhost:5000/api/studentData/fetchData",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      }
+    );
+    const json = await response.json();
+    console.log(json)
+    setStudentData(json);
+    console.log(studentData)
+    
+  };
   return (
-    <ContextApp.Provider value={{ addData,editData,getData }}>
+    <ContextApp.Provider value={{ studentData,addData, editData, getData }}>
       {props.children}
     </ContextApp.Provider>
   );

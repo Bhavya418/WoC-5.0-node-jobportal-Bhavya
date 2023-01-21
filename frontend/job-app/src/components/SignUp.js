@@ -25,7 +25,7 @@ const SignUp = (props) => {
     if (json) {
       
       localStorage.setItem("token", json);
-      Navigate("/login");
+      Navigate("/studentData");
     }
   };
   const onChange = (e) => {
