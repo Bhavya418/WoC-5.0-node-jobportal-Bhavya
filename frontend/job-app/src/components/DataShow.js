@@ -17,6 +17,7 @@ const DataShow = () => {
   useEffect(()=>{
     if(localStorage.getItem("token")){
         getData();
+        localStorage.Windows.reload();
     }
     else{
         Navigate("/login");
